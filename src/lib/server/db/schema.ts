@@ -2,12 +2,23 @@ import { sqliteTable, integer, text, primaryKey } from 'drizzle-orm/sqlite-core'
 
 export const product = sqliteTable('product', {
 	id: integer('id').primaryKey({ autoIncrement: true }),
+	uuid: text('uuid')
+		.notNull()
+		.unique()
+		.$defaultFn(() => crypto.randomUUID()),
 	name: text('name').notNull(),
-	bestBeforeDate: text('best_before_date').notNull(),
+	bestBeforeDate: text('best_before_date'),
+	storageId: integer('storage_id')
+		.notNull()
+		.references(() => storage.id),
 })
 
 export const storage = sqliteTable('storage', {
 	id: integer('id').primaryKey({ autoIncrement: true }),
+	uuid: text('uuid')
+		.notNull()
+		.unique()
+		.$defaultFn(() => crypto.randomUUID()),
 	name: text('name').notNull().unique(),
 })
 
@@ -26,6 +37,10 @@ export const storageAccess = sqliteTable(
 
 export const user = sqliteTable('user', {
 	id: text('id').primaryKey(),
+	uuid: text('uuid')
+		.notNull()
+		.unique()
+		.$defaultFn(() => crypto.randomUUID()),
 	age: integer('age'),
 	username: text('username').notNull().unique(),
 	passwordHash: text('password_hash').notNull(),

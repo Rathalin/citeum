@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state'
 	import logo from '$lib/images/svelte-logo.svg'
-	import github from '$lib/images/github.svg'
+
+	let { username }: { username: string | null } = $props()
 </script>
 
 <header>
@@ -19,6 +20,9 @@
 			<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
 				<a href="/">Home</a>
 			</li>
+			<li aria-current={page.url.pathname.startsWith('/demoo/lucia') ? 'page' : undefined}>
+				<a href="/demo/lucia">Lucia</a>
+			</li>
 			<li aria-current={page.url.pathname === '/about' ? 'page' : undefined}>
 				<a href="/about">About</a>
 			</li>
@@ -31,10 +35,8 @@
 		</svg>
 	</nav>
 
-	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
-		</a>
+	<div class="corner mt-2 mr-4">
+		<p>{username}</p>
 	</div>
 </header>
 
@@ -42,11 +44,6 @@
 	header {
 		display: flex;
 		justify-content: space-between;
-	}
-
-	.corner {
-		width: 3em;
-		height: 3em;
 	}
 
 	.corner a {
