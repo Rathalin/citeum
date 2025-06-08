@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/state'
 	import logo from '$lib/images/svelte-logo.svg'
+	import type { Snippet } from 'svelte'
 
-	let { username }: { username: string | null } = $props()
+	let { right }: { right: Snippet } = $props()
 </script>
 
 <header>
@@ -35,8 +36,8 @@
 		</svg>
 	</nav>
 
-	<div class="corner mt-2 mr-4">
-		<p>{username}</p>
+	<div class="corner mt-2 mr-2">
+		{@render right()}
 	</div>
 </header>
 
@@ -63,7 +64,7 @@
 	nav {
 		display: flex;
 		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
+		--background: rgba(73, 73, 73, 0.663);
 	}
 
 	svg {
