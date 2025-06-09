@@ -16,10 +16,10 @@
 
 :root {
 	/* Colors */
-	--background: hsl(0 0% 100%);
-	--background-alt: hsl(0 0% 100%);
-	--foreground: hsl(0 0% 9%);
-	--foreground-alt: hsl(0 0% 32%);
+	--background: var(--color-zinc-50); /* Zinc 50 */
+	--background-alt: var(--color-zinc-100); /* Zinc 100 */
+	--foreground: var(--color-zinc-900);
+	--foreground-alt: var(--color-zinc-800);
 	--muted: hsl(240 5% 96%);
 	--muted-foreground: hsla(0 0% 9% / 0.4);
 	--border: hsl(240 6% 10%);
@@ -51,11 +51,11 @@
 
 .dark {
 	/* Colors */
-	--background: hsl(0 0% 5%);
-	--background-alt: hsl(0 0% 8%);
-	--foreground: hsl(0 0% 95%);
-	--foreground-alt: hsl(0 0% 70%);
-	--muted: hsl(240 4% 16%);
+	--background: var(--color-zinc-950);
+	--background-alt: var(--color-zinc-900);
+	--foreground: var(--color-zinc-300);
+	--foreground-alt: var(--color-zinc-400);
+	--muted: var(--color-zinc-500);
 	--muted-foreground: hsla(0 0% 100% / 0.4);
 	--border: hsl(0 0% 96%);
 	--border-input: hsla(0 0% 96% / 0.17);
