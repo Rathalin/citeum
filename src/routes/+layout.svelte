@@ -7,6 +7,7 @@
 	import Moon from 'phosphor-svelte/lib/Moon'
 	import Sun from 'phosphor-svelte/lib/Sun'
 	import { onMount, type Snippet } from 'svelte'
+	import { invalidateAll } from '$app/navigation'
 
 	let { children }: { children: Snippet } = $props()
 
@@ -21,7 +22,13 @@
 		theme = theme === 'light' ? 'dark' : 'light'
 		document.documentElement.setAttribute('class', theme)
 	}
+
+	function onWindowFocus() {
+		invalidateAll()
+	}
 </script>
+
+<svelte:window onfocus={onWindowFocus} />
 
 <div class="bg-background flex min-h-screen flex-col">
 	<Header right={ThemeToggle} />
