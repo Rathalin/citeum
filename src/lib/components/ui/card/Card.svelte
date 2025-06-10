@@ -1,5 +1,14 @@
 <script lang="ts">
-	let { children } = $props()
+	import { cn } from '$lib/utils/cn'
+	import type { ClassValue } from 'clsx'
+	import type { Snippet } from 'svelte'
+	import type { SvelteHTMLElements } from 'svelte/elements'
+
+	export type CardProps = { children: Snippet; class: ClassValue } & SvelteHTMLElements['div']
+
+	let { children, class: className, ...restProps }: CardProps = $props()
 </script>
 
-<div class="rounded-md p-4 dark:bg-zinc-800">{@render children()}</div>
+<div class={cn('rounded-md p-4 dark:bg-zinc-800', className)} {...restProps}>
+	{@render children()}
+</div>

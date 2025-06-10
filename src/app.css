@@ -16,8 +16,8 @@
 
 :root {
 	/* Colors */
-	--background: var(--color-zinc-50); /* Zinc 50 */
-	--background-alt: var(--color-zinc-100); /* Zinc 100 */
+	--background: var(--color-zinc-200);
+	--background-alt: var(--color-zinc-300);
 	--foreground: var(--color-zinc-900);
 	--foreground-alt: var(--color-zinc-800);
 	--muted: hsl(240 5% 96%);

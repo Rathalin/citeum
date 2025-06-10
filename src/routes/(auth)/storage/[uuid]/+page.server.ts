@@ -1,4 +1,5 @@
 import { product, storage, storageAccess } from '$lib/server/db/schema.js'
+import { dateFormatter } from '$lib/utils/formatter'
 import { error } from '@sveltejs/kit'
 import { and, eq } from 'drizzle-orm'
 
@@ -40,7 +41,11 @@ export async function load({ locals: { db, user }, params }) {
 		.innerJoin(storageAccess, eq(storageAccess.storageId, storage.id))
 		.where(and(eq(storage.uuid, params.uuid), eq(storageAccess.userId, user.id)))
 	return {
-		products,
+		products: products.map(({ bestBeforeDate, ...other }) => ({
+			...other,
+			bestBeforeDate:
+				bestBeforeDate != null ? dateFormatter.format(new Date(bestBeforeDate)) : null,
+		})),
 		storage: {
 			name: storageNameResult.storageName,
 		},

@@ -33,7 +33,7 @@
 <div class="bg-background flex min-h-screen flex-col">
 	<Header right={ThemeToggle} />
 
-	<main class="mx-auto flex w-full max-w-[64rem] flex-1 flex-col p-4">
+	<main class="mx-auto flex w-full max-w-[50rem] flex-1 flex-col p-4">
 		{@render children()}
 	</main>
 </div>
