@@ -9,6 +9,6 @@
 	let { children, class: className, ...restProps }: CardProps = $props()
 </script>
 
-<div class={cn('rounded-md p-4 dark:bg-zinc-800', className)} {...restProps}>
+<div class={cn('rounded-md dark:bg-zinc-800', className)} {...restProps}>
 	{@render children()}
 </div>

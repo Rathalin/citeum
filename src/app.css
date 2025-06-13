@@ -288,8 +288,8 @@
 	}
 
 	::selection {
-		background: #fdffa4;
-		color: black;
+		background: var(--color-amber-200);
+		color: var(--color-black);
 	}
 }
 

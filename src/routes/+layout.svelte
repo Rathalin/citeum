@@ -8,6 +8,7 @@
 	import Sun from 'phosphor-svelte/lib/Sun'
 	import { onMount, type Snippet } from 'svelte'
 	import { invalidateAll } from '$app/navigation'
+	import BottomNavBar from '$lib/components/ui/bottom-nav-bar/BottomNavBar.svelte'
 
 	let { children }: { children: Snippet } = $props()
 
@@ -36,6 +37,10 @@
 	<main class="mx-auto flex w-full max-w-[50rem] flex-1 flex-col p-4">
 		{@render children()}
 	</main>
+
+	<footer class="mx-auto w-full max-w-[50rem]">
+		<BottomNavBar />
+	</footer>
 </div>
 
 {#snippet ThemeToggle()}
